@@ -17,3 +17,14 @@ This time I really tried to focus on iterating the world and writing a simple AP
 What worked... using a list of cells, World#at()
 What didn't... calling residents Animals, the World#plane
 What I'll do differently... nothing I think I can make this work if I continue to extrapolate this technique
+
+Iteration 3
+-----------
+
+This implementation didn't make it as far as the last. I did add a parameter to the constructor which populated the world from an array. It wasn't as useful as I'd though though and I probably won't do it again.
+
+I only just had time to add the neighbours function but that couldn't verify it was working yet.
+
+What worked... using at() and populate(), using a list of cells
+What didn't... calculating neighbours all the time, the array constructor was more hassle than it was worth
+What I'll do differently... do a two pass algorithm on a list of possible new cells. First pass counts neighbours and creates new potential cells, second pass selects only cells with two or more neighbours to carry on to next generation.
