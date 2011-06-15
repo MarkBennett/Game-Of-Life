@@ -28,3 +28,14 @@ I only just had time to add the neighbours function but that couldn't verify it 
 What worked... using at() and populate(), using a list of cells
 What didn't... calculating neighbours all the time, the array constructor was more hassle than it was worth
 What I'll do differently... do a two pass algorithm on a list of possible new cells. First pass counts neighbours and creates new potential cells, second pass selects only cells with two or more neighbours to carry on to next generation.
+
+Iteration 4
+-----------
+
+This iteration took a different tack and one which I think will ultimately work better now that I know how to implement it. Instead of simply iterating the set of cells and counting their neighbours this time I was creating a new set of cells and iterating a neighbour counter instead. If a position was a neighbour of a cell but wasn't occupied yet a new cell was created. Cells which were already alive were marked as such (old neightbours!) so that they could be distinguished from the new cells which were spawned this round.
+
+This implementation is an improvement over the previous as it has the potential to spawn new cells which was not possible in the old system. The next major problem I see is that this algorithm will scale exponentially with respect to the number of cells, N, as the current at() function traverses the list of cells N times. This could be addressed be a caching or indexing lookup for the cells.
+
+What worked... using a new world with neighbour counting, tracking old and new neighbours, passing a cell into populate if I want to maintain it's values
+What didn't... me forgetting how to call iterate, and not knowing how to define a matcher
+What I'll do differently... nothing, just make it work faster
