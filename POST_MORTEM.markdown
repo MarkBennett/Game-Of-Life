@@ -39,3 +39,25 @@ This implementation is an improvement over the previous as it has the potential 
 What worked... using a new world with neighbour counting, tracking old and new neighbours, passing a cell into populate if I want to maintain it's values
 What didn't... me forgetting how to call iterate, and not knowing how to define a matcher
 What I'll do differently... nothing, just make it work faster
+
+Iteration 5
+------------
+
+Apparently take a few days off has not been good for my speed of coding! I only got the first rule running, then implementing the second broke everything so it's not working at all right now. :(
+
+What worked...
+ * using CoffeeScript iterators is fast
+
+What didn't...
+ * look up how to add a matcher to Jasmine, and how to support CoffeeScript in jessie
+ * having so much stuff in the World#iterate() function
+
+Wht I'll do differently...
+ * break down my World#iterate() algorithm
+   * add a method to World to find a cells neighbours, accepts a default to create missing neighbours
+   * don't track new cells in a new world
+     - re-use existing world and cells
+     - capture the alive cells at the start of iterate
+   * add a World#cull() method to remove exterminate cells which wouldn't survive the rules
+ 
+               
