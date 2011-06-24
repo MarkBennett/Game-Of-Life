@@ -52,7 +52,7 @@ What didn't...
  * look up how to add a matcher to Jasmine, and how to support CoffeeScript in jessie
  * having so much stuff in the World#iterate() function
 
-Wht I'll do differently...
+What I'll do differently...
  * break down my World#iterate() algorithm
    * add a method to World to find a cells neighbours, accepts a default to create missing neighbours
    * don't track new cells in a new world
@@ -60,4 +60,21 @@ Wht I'll do differently...
      - capture the alive cells at the start of iterate
    * add a World#cull() method to remove exterminate cells which wouldn't survive the rules
  
-               
+Iteration 6
+------------
+
+Despite numerous crashes this is my first successfully iteration! The Game of Life is working and is applying the correct rules to each iteration. I think I'll stop here and call the Code Retreat over. I'll continue adding a little to the code though. For example, I'd like to add a function to output the game world to the console. I'd also like to add a canvas wrapper for displaying it in the browser.
+
+What worked...
+
+ * Breaking down the World#iterate() into proliferate() and cull() made the logic much clearer
+ * Having World#at() return a dead cell, then store it for use later, rather than undefined
+ * Using World#neighbours()
+
+What didn't...
+
+ * In the long run the performance of World#populate() will slow down for systems with a large number of cells as it's execution cost grows exponentially wrt to the number cells
+
+What I'll do differently next time...
+
+ * Add some sort of spatial indexing to the set of cells so finding neigbours is cheap and doesn't traverse the entire set
